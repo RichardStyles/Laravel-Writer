@@ -12,17 +12,21 @@ class PostTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
-    public function a_user_can_browse_posts()
+    public function a_user_can_view_all_posts()
     {
-        $post = factory('App\Post')->create([
-            'title' => "The title of a post",
-            'body' => "The body of the post"
-        ]);
+        $post = factory('App\Post')->create();
 
         $response = $this->get('/post');
         $response->assertStatus(200);
         $response->assertSee($post->title);
         $response->assertSee($post->body);
+
+    }
+
+    /** @test */
+    public function a_user_can_view_a_single_post()
+    {
+        $post = factory('App\Post')->create();
 
         $response = $this->get('/post/' . $post->id);
         $response->assertStatus(200);
