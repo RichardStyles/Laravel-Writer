@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/post', 'PostsController@index');
+Route::get('/post/{post}', 'PostsController@show');

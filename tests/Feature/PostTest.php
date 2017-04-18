@@ -19,9 +19,14 @@ class PostTest extends TestCase
             'body' => "The body of the post"
         ]);
 
-        $this->get('/post')
-            ->assertStatus(200)
-            ->assertSee($post->title)
-            ->assertSee($post->body);
+        $response = $this->get('/post');
+        $response->assertStatus(200);
+        $response->assertSee($post->title);
+        $response->assertSee($post->body);
+
+        $response = $this->get('/post/' . $post->id);
+        $response->assertStatus(200);
+        $response->assertSee($post->title);
+        $response->assertSee($post->body);
     }
 }
