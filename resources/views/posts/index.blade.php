@@ -3,21 +3,24 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Posts</div>
+            <div class="col-md">
+                @foreach($posts as $post)
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>{{ $post->title }}</h4>
+                        </div>
 
-                    <div class="panel-body">
-                        @foreach($posts as $post)
-                            <article>
-                                <h4>{{ $post->title }}</h4>
-                                <div class="body">{{ $post->body }}</div>
-                            </article>
+                        <div class="panel-body">
+                            {{ $post->body }}
+                        </div>
 
-                            <hr>
-                        @endforeach
+                        <div class="panel-footer">
+                            Published at {{$post->created_at->diffForHumans()}} by {{$post->user->name}}
+                        </div>
                     </div>
-                </div>
+                @endforeach
+
+                {{$posts->links()}}
             </div>
         </div>
     </div>
