@@ -15,7 +15,7 @@
                         </div>
 
                         <div class="panel-footer">
-                            Published at {{$post->created_at->diffForHumans()}} by {{$post->user->name}}
+                            Published at {{$post->created_at->diffForHumans()}} by {{$post->creator->name}}
                         </div>
                     </div>
                 @endforeach

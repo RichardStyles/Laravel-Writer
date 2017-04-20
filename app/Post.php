@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-    public function user()
+    /**
+     * A thread belongs to a creator.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function creator()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function path()
