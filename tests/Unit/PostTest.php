@@ -22,16 +22,18 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    function a_thread_can_make_a_string_path()
+    function a_post_can_make_a_string_path()
     {
         $this->assertEquals(
-            "/posts/{$this->post->id}", $this->post->path()
+            "/words/{$this->post->id}", $this->post->path()
         );
     }
+
     /** @test */
-    function a_thread_has_a_creator()
+    function a_post_has_a_creator()
     {
         $this->assertInstanceOf('App\User', $this->post->creator);
     }
+
 
 }

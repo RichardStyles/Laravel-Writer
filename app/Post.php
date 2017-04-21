@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -13,7 +14,7 @@ class Post extends Model
      * @var array
      */
     protected $with = ['creator'];
-    
+
     /**
      * A thread belongs to a creator.
      *
@@ -26,6 +27,9 @@ class Post extends Model
 
     public function path()
     {
-        return "/posts/" . $this->id;
+        return "/words/" . $this->id;
     }
+
+
+
 }

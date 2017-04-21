@@ -26,7 +26,7 @@ class PostTest extends TestCase
     public function a_user_can_view_all_posts()
     {
 
-        $response = $this->get('/posts');
+        $response = $this->get('/words');
         $response->assertStatus(200)
                 ->assertSee($this->post->title)
                 ->assertSee($this->post->body)

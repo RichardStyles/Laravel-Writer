@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return redirect('/posts');
+    return redirect('/words');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/posts', 'PostsController@index');
-Route::get('/posts/{post}', 'PostsController@show');
+Route::get('/words', 'PostsController@index');
+Route::get('/words/{post}', 'PostsController@show');
