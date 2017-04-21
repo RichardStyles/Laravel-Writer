@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Post;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -11,6 +12,7 @@ class PostTest extends TestCase
 {
     use DatabaseMigrations;
 
+    /** @var  Post */
     protected $post;
 
     public function setUp()
@@ -29,7 +31,7 @@ class PostTest extends TestCase
                 ->assertSee($this->post->title)
                 ->assertSee($this->post->body)
                 ->assertSee($this->post->created_at->diffForHumans())
-                ->assertSee($this->post->user->name);
+                ->assertSee($this->post->creator->name);
 
     }
 
@@ -41,6 +43,6 @@ class PostTest extends TestCase
             ->assertSee($this->post->title)
             ->assertSee($this->post->body)
             ->assertSee($this->post->created_at->diffForHumans())
-            ->assertSee($this->post->user->name);
+            ->assertSee($this->post->creator->name);
     }
 }
