@@ -4,21 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md">
-                @foreach($posts as $post)
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4><a href="{{ $post->path() }}">{{ $post->title }}</a></h4>
-                        </div>
-
-                        <div class="panel-body">
-                            {{ $post->body }}
-                        </div>
-
-                        <div class="panel-footer">
-                            Published at {{$post->created_at->diffForHumans()}} by {{$post->creator->name}}
-                        </div>
-                    </div>
-                @endforeach
+                @forelse($posts as $post)
+                    @include('posts.partials.post')
+                @empty
+                    <p>Someone has yet to write a post.</p>
+                @endforelse
 
                 {{$posts->links()}}
             </div>

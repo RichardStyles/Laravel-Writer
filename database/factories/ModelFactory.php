@@ -30,7 +30,6 @@ $factory->define(App\Post::class, function (Faker\Generator $faker){
             return factory(App\User::class)->create()->id;
         },
         'title' => $faker->sentence(),
-        'body' => $faker->paragraphs(4,true),
-        'slug' => $faker->unique()->slug
+        'body' => $faker->paragraphs(4,true)
     ];
 });

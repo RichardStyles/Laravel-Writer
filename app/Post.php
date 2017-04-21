@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class Post extends Model
 {
-
+    protected $guarded = [];
     /**
      * The relationships to always eager-load.
      *

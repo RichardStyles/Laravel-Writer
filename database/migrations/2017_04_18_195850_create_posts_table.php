@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->longText('body');
-            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
