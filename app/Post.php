@@ -8,6 +8,13 @@ class Post extends Model
 {
 
     /**
+     * The relationships to always eager-load.
+     *
+     * @var array
+     */
+    protected $with = ['creator'];
+    
+    /**
      * A thread belongs to a creator.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
